@@ -22,7 +22,7 @@ def getMaxItems(folder_path: str, ext: str) -> int:
 #end def
 
 # Folder with the images
-folder_path = "kivymd_icons"
+folder_path = "kivymd-icons-white"
 
 # Vars for iteration
 damaged_files = []

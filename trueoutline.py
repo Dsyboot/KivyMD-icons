@@ -9,12 +9,12 @@ def erase():
     #end if
 #end def
 
-def getMaxItems(file: str, ext: str) -> int:
+def getMaxItems(folder: str, ext: str) -> int:
     count = 0
 
     # get max count of files with "-outline"
-    for filename in os.listdir(folder_path):
-        if filename.endswith(ext) and filename.endswith(file):
+    for filename in os.listdir(folder):
+        if filename.endswith(ext):
             count += 1
         #end if
     #end for
@@ -23,13 +23,13 @@ def getMaxItems(file: str, ext: str) -> int:
 #end def
 
 # Folder with the images
-folder_path = "kivymd_icons"
+folder_path = "kivymd-icons-white"
 
-# Iterate folder with the "-outline" images
+# Iterate folder with the images
 ct = 0
-count = getMaxItems("-outline.png", ".png")
+count = getMaxItems(folder_path, ".png")
 for filename in os.listdir(folder_path):
-    if filename.endswith('.png') and filename.endswith('-outline.png'):
+    if filename.endswith(".png"):
         filepath = os.path.join(folder_path, filename)
         
         # Convert image in RGBA
@@ -53,11 +53,11 @@ for filename in os.listdir(folder_path):
         
         # Show a counter
         erase()
-        print(f"Modified files ({ct} / {count})")
+        print(f"Modifying and painting files ({ct} / {count})")
         print(f"{round((ct / count) * 100, 2)}% / 100.00%")
         ct += 1
     #end if
 #end for
 
 erase()
-print("Files modified successfully!")
+print("Files painted and modified successfully!")
